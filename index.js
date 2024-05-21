@@ -10,9 +10,17 @@ connectDB()
 
 const app = express()
 
+// Logging
 if (process.env.NODE_ENV = 'development') {
     app.use(morgan('dev'))
 }
+
+//EmbededJS
+app.set('view engine', 'ejs')
+
+// Routes
+app.use('/', require('./routes/indexes'))
+
 
 const PORT = process.env.PORT || 8080
 
